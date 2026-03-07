@@ -1,0 +1,64 @@
+{
+  "name": "Test Serverless OpenAI Chat",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "options": {}
+      },
+      "id": "1d8b7b25-4c07-4e6f-9694-c7bc63a8a0e8",
+      "name": "Chat Trigger",
+      "type": "n8n-nodes-base.chatTrigger",
+      "typeVersion": 1,
+      "position": [
+        380,
+        240
+      ],
+      "webhookId": "41a1a5b8-df93-4a00-abeb-97db3db4cf83"
+    },
+    {
+      "parameters": {
+        "model": "gpt-3.5-turbo",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "={{ $json.action === \"sendMessage\" ? $json.message : \"\" }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cf6d56d4-d558-45ec-b1ea-2710da186f91",
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [
+        600,
+        240
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Chat Trigger": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "f0525d88-5183-4a27-a006-2580cc29000a",
+  "id": "e6f49d47-fcc0-4e3b-b286-9a25b395df3d",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  }
+}
