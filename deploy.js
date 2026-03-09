@@ -2,7 +2,7 @@ const fs = require('fs');
 const cp = require('child_process');
 
 const SERVICE_NAME = "n8n-serverless";
-const REGION = "us-central1";
+const REGION = "europe-west3";
 
 // 1. Load .env
 const envContent = fs.readFileSync('.env', 'utf8');
@@ -44,8 +44,10 @@ const deployCmd = [
     '--cpu', '1',
     '--min-instances', '0',
     '--max-instances', '1',
+    '--memory', '1024Mi',
+    '--cpu', '1',
     '--port', '8080',
-    '--no-cpu-throttling',
+    '--cpu-throttling',
     '--env-vars-file', 'n8n-env.yaml'
 ];
 
