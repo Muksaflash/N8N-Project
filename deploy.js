@@ -40,14 +40,12 @@ const deployCmd = [
     '--image', IMAGE_NAME,
     '--region', REGION,
     '--allow-unauthenticated',
-    '--memory', '1Gi',
+    '--memory', '2048Mi',
     '--cpu', '1',
     '--min-instances', '0',
     '--max-instances', '1',
-    '--memory', '1024Mi',
-    '--cpu', '1',
     '--port', '8080',
-    '--cpu-throttling',
+    '--no-cpu-throttling',
     '--env-vars-file', 'n8n-env.yaml'
 ];
 
